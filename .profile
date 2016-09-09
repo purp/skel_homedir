@@ -7,7 +7,8 @@ if which rbenv > /dev/null; then
   eval "$(rbenv init -)"
 fi
 
-export PYENV_ROOT=/usr/local/var/pyenv
+export PYENV_ROOT=~/.pyenv
+export PATH="$PYENV_ROOT/bin:$PATH"
 if which pyenv > /dev/null; then
   eval "$(pyenv init -)"
 fi
