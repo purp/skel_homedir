@@ -2,7 +2,7 @@ export PATH=~/bin:/usr/local/sbin:$PATH
 
 eval "$(direnv hook bash)"
 
-export RBENV_ROOT=/usr/local/var/rbenv
+# export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null; then
   eval "$(rbenv init -)"
 fi
