@@ -5,3 +5,5 @@
 !.bash_functions
 !.gitconfig
 !.ssh/
+!bin/instance-setup.sh
+
