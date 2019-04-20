@@ -9,17 +9,20 @@ export INSTANCE_REGION=`curl --silent --connect-timeout 1 http://169.254.169.254
 # Push the region into the config
 aws configure set region $INSTANCE_REGION
 
-export VOLUME_ID=`aws ec2 describe-volumes --filters Name=tag-value,Values="work" --query 'Volumes[*].{ID:VolumeId}' --output text`
+# export VOLUME_ID=`aws ec2 describe-volumes --filters Name=tag-value,Values="work" --query 'Volumes[*].{ID:VolumeId}' --output text`
 
 # Attach work volume
-aws ec2 attach-volume --volume-id $VOLUME_ID --instance-id $INSTANCE_ID --device /dev/sdb
-mount -a
-
-# Create local ssh key
-if [ ! -f ~/.ssh/id_ec2_rsa ] ; then
-  ssh-keygen -t rsa -b 2048 -f ~/.ssh/id_ec2_rsa -q -N ""
+if [ ! -z "$EBS_VOLUME_ID" ]
+  aws ec2 attach-volume --volume-id $EBS_VOLUME_ID --instance-id $INSTANCE_ID --device /dev/sdb
+  mount -a
 fi
 
-# Grab my public address
-aws ec2 associate-address --public-ip 52.9.72.248 --instance-id $INSTANCE_ID
+# Create local ssh key
+# if [ ! -f ~/.ssh/id_ec2_rsa ] ; then
+#   ssh-keygen -t rsa -b 2048 -f ~/.ssh/id_ec2_rsa -q -N ""
+# fi
 
+# Grab my public address
+if [ ! -z "$ELASTIC_PUBLIC_ID" ] ; then
+  aws ec2 associate-address --public-ip $ELASTIC_PUBLIC_ID --instance-id $INSTANCE_ID
+fi
