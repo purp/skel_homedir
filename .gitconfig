@@ -13,22 +13,22 @@
 # 	autoupdate = 1
 # [push]
 # 	default = matching
-# [color]
-# 	ui = auto
-# [color "branch"]
-# 	current = yellow bold
-# 	local = green bold
-# 	remote = cyan bold
-# [color "diff"]
-# 	meta = yellow bold
-# 	frag = magenta bold
-# 	old = red bold
-# 	new = green bold
-# 	whitespace = red reverse
-# [color "status"]
-# 	added = green bold
-# 	changed = yellow bold
-# 	untracked = red bold
+[color]
+	ui = auto
+[color "branch"]
+	current = yellow bold
+	local = green bold
+	remote = cyan bold
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[color "status"]
+	added = green bold
+	changed = yellow bold
+	untracked = red bold
 # [diff]
 # 	tool = vimdiff
 # [difftool]
@@ -54,10 +54,10 @@
 	# amr = am --resolved
 	# ams = am --skip
 	# #############
-	# b = branch
-	# ba = branch -a
-	# bd = branch -d
-	# br = branch -r
+	b = branch
+	ba = branch -a
+	bd = branch -d
+	br = branch -r
 	#############
 	c = commit
 	ca = commit -a
@@ -67,6 +67,9 @@
 	cd = commit --amend
 	cad = commit -a --amend
 	ced = commit --allow-empty --amend
+	#############
+	co = checkout
+	cob = checkout -b
 	#############
 	d = diff
 	dc = diff --cached
