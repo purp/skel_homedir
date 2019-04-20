@@ -24,6 +24,7 @@ alias sa='if [ -r ~/.bash_aliases ]; then . ~/.bash_aliases; fi'
 alias sf='if [ -r ~/.bash_functions ]; then . ~/.bash_functions; fi'
 alias sr='if [ -r ~/.bashrc ]; then . ~/.bashrc; fi'
 
+sa
 sf
 
 export PS1="\u@\h:\w [\t] <\!>\$ "
