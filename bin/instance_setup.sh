@@ -12,7 +12,7 @@ aws configure set region $INSTANCE_REGION
 # export VOLUME_ID=`aws ec2 describe-volumes --filters Name=tag-value,Values="work" --query 'Volumes[*].{ID:VolumeId}' --output text`
 
 # Attach work volume
-if [ ! -z "$EBS_VOLUME_ID" ]
+if [ ! -z "$EBS_VOLUME_ID" ] ; then
   aws ec2 attach-volume --volume-id $EBS_VOLUME_ID --instance-id $INSTANCE_ID --device /dev/sdb
   mount -a
 fi
